@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.chinaedu.mybatis.dao.UserMapper">
+
+    <insert id="insertUser" parameterType="User">
+        INSERT INTO user_t(name,password,age) VALUES (#{name},#{password},#{age})
+    </insert>
+
+    <delete id="removeUser" parameterType="java.lang.Integer">
+        DELETE FROM user_t WHERE userId = #{id}
+    </delete>
+
+    <update id="updateUser" parameterType="User">
+        UPDATE user_t SET
+        <if test="name != null">
+            name = #{name},
+        </if>
+        <if test="password != null">
+            password = #{password},
+        </if>
+        <if test="age != null">
+            age = #{age}
+        </if>
+        WHERE userId = #{userId}
+    </update>
+
+    <select id="getUser" resultType="User" parameterType="java.lang.Integer">
+        SELECT * FROM user_t WHERE userId = #{id}
+    </select>
+
+</mapper>
