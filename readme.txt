@@ -17,3 +17,7 @@ eclipse+maven
 	<artifactId>mysql-connector-java</artifactId>
 	<version>5.1.20</version>
 </dependency>
+
+数据库:mysql
+
+数据库表:参考db.sql
