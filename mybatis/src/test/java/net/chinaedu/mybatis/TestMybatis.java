@@ -48,6 +48,8 @@ public class TestMybatis {
         SqlSession session = factory.openSession();
         UserMapper mapper = session.getMapper(UserMapper.class);
         mapper.removeUser(1);
+
+
     }
 
     @Test
@@ -57,6 +59,4 @@ public class TestMybatis {
         User u = mapper.getUser(1);
         System.out.println(u);
     }
-
-
 }
